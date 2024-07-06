@@ -1,0 +1,90 @@
+/* This is a basic temperarute conversion system
+    where the user gives the required inputs for the conversion*/
+
+
+#include <iostream>
+#include <windows.h>
+
+using namespace std;
+
+void temperatureConverter() {
+    float ch1, ch2, temp, otemp;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    system("cls");
+
+    cout << "Welcome to the Temperature Converter" << endl;
+    cout << "Press 1 for Celsius" << endl;
+    cout << "Press 2 for Fahrenheit" << endl;
+    cout << "Press 3 for Kelvin" << endl;
+    cout << "Press 0 at any stage to Exit" << endl;
+
+    cout << "\nChoose the unit to be converted: ";
+    cin >> ch1;
+
+    if (ch1 == 0) {
+        cout << "Exiting the converter." << endl;
+        return;
+    }
+    if (ch1 < 1 || ch1 > 3) {
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
+        cout << "Invalid choice. Please try again." << endl;
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+        return;
+    }
+
+    cout << "Now, choose the unit it needs to be converted into: ";
+    cin >> ch2;
+
+    if (ch2 == 0) {
+        cout << "Exiting the converter. Goodbye!" << endl;
+        return;
+    }
+    if (ch2 < 1 || ch2 > 3) {
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
+        cout << "Invalid choice. Please try again." << endl;
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+        return;
+    }
+
+    cout << "Enter the temperature: ";
+    cin >> temp;
+
+    if (ch1 == 1 && ch2 == 2) {
+        otemp = 9 * temp / 5 + 32;
+        cout << "The converted temperature is: " << otemp << "F" << endl;
+    } else if (ch1 == 1 && ch2 == 3) {
+        otemp = temp + 273.15;
+        cout << "The converted temperature is: " << otemp << "K" << endl;
+    } else if (ch1 == 2 && ch2 == 1) {
+        otemp = (temp - 32) * 5 / 9;
+        cout << "The converted temperature is: " << otemp << "C" << endl;
+    } else if (ch1 == 2 && ch2 == 3) {
+        otemp = (temp + 459.67) * 5 / 9;
+        cout << "The converted temperature is: " << otemp << "K" << endl;
+    } else if (ch1 == 3 && ch2 == 1) {
+        otemp = temp - 273.15;
+        cout << "The converted temperature is: " << otemp << "C" << endl;
+    } else if (ch1 == 3 && ch2 == 2) {
+        otemp = temp * 9 / 5 - 459.67;
+        cout << "The converted temperature is: " << otemp << "F" << endl;
+    }else if (ch1 == 1 && ch2 == 1)
+    {
+        otemp = temp;
+        cout << "The converted temperature is: " << otemp << "C" << endl;
+    }else if (ch1 == 2 && ch2 == 2)
+    {
+        otemp = temp;
+        cout << "The converted temperature is: " << otemp << "F" << endl;
+    }else if (ch1 == 3 && ch2 == 3)
+    {
+        otemp = temp;
+        cout << "The converted temperature is: " << otemp << "K" << endl;
+    }
+    
+}
+
+int main() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    temperatureConverter();
+    return 0;
+}
