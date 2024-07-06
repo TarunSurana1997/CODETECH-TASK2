@@ -25,9 +25,6 @@ The objective of this project is to develop an interactive console-based Tempera
 -   <windows.h>: Windows API library for handling console text color and other console-specific functions.
 - **Console Commands**: system("cls"): To clear the console screen.
 
-_______________________________________________________
-
-_______________________________________________________
 ### Key Insights
 - **Interactive Console Application**:he program demonstrates how to create an interactive console application in C++, allowing users to input choices and receive converted temperature results dynamically.
 - **Windows Console Manipulation**: It showcases the use of Windows API (<windows.h>) functions like SetConsoleTextAttribute() to enhance user experience by displaying messages in different colors for clarity and emphasis.
